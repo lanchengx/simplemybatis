@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.demo.dao.EmployeeMapper">
+	<resultMap id="BaseResultMap"
+		type="com.demo.entity.Employee">
+		<id column="employee_id" property="employeeId" jdbcType="INTEGER" />
+		<result column="employee_login_name"
+			property="employeeLoginName" jdbcType="VARCHAR" />
+		<result column="employee_login_password"
+			property="employeeLoginPassword" jdbcType="VARCHAR" />
+		<result column="employee_nick_name" property="employeeNickName"
+			jdbcType="VARCHAR" />
+		<result column="role_id" property="roleId" jdbcType="INTEGER" />
+		<result column="department_id" property="departmentId"
+			jdbcType="INTEGER" />
+		<result column="job_id" property="jobId" jdbcType="INTEGER" />
+		<result column="employee_status" property="employeeStatus"
+			jdbcType="BIT" />
+	</resultMap>
+	<select id="getEmployee" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+	select * from employee where employee_id = #{employeeId,jdbcType=INTEGER}
+	</select>
+	<select id="getEmployees" resultMap="BaseResultMap">
+	select * from employee
+	</select>
+</mapper>
