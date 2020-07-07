@@ -17,10 +17,33 @@
 		<result column="employee_status" property="employeeStatus"
 			jdbcType="BIT" />
 	</resultMap>
-	<select id="getEmployee" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+
+    <select id="getEmployee" parameterType="java.lang.Integer" resultMap="BaseResultMap">
 	select * from employee where employee_id = #{employeeId,jdbcType=INTEGER}
 	</select>
 	<select id="getEmployees" resultMap="BaseResultMap">
 	select * from employee
 	</select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="employee.id">
+        insert into employee
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="employee.employeeLoginName != null">`employeeLogin_name`,</if>
+            <if test="employee.employeeLoginPassword != null">`employeeLogin_password`,</if>
+            <if test="employee.employeeNickName != null">`employeeNick_name`,</if>
+            <if test="employee.roleId != null">`role_id`,</if>
+            <if test="employee.departmentId != null">`department_id`,</if>
+            <if test="employee.jobId != null">`job_id`,</if>
+            <if test="employee.employeeStatus != null">`employee_status`,</if>
+        </trim>
+        <trim prefix="values(" suffix=")" suffixOverrides=",">
+            <if test="employee.employeeLoginName != null">#{employee.employeeLoginName},</if>
+            <if test="employee.employeeLoginPassword != null">#{employee.employeeLoginPassword},</if>
+            <if test="employee.employeeNickName != null">#{employee.employeeNickName},</if>
+            <if test="employee.roleId != null">#{employee.roleId},</if>
+            <if test="employee.departmentId != null">#{employee.departmentId},</if>
+            <if test="employee.jobId != null">#{employee.jobId},</if>
+            <if test="employee.employeeStatus != null">#{employee.employeeStatus},</if>
+        </trim>
+    </insert>
 </mapper>

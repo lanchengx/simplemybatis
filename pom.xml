@@ -20,11 +20,23 @@
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
-		<dependency>
-			<groupId>org.mybatis</groupId>
-			<artifactId>mybatis</artifactId>
-			<version>3.5.4</version>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.mybatis</groupId>-->
+<!--			<artifactId>mybatis</artifactId>-->
+<!--			<version>3.5.4</version>-->
+<!--		</dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>com.mymybatis</groupId>-->
+<!--            <artifactId>mybatis</artifactId>-->
+<!--            <version>3.5.5</version>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>com.lan</groupId>
+            <artifactId>lanmybatis</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+
 
 		<!-- https://mvnrepository.com/artifact/com.github.pagehelper/pagehelper -->
 		<dependency>

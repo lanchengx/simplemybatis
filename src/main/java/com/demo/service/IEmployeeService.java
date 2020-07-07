@@ -7,4 +7,6 @@ public interface IEmployeeService {
 	Employee getEmployee(Integer employeeId);
 
 	PageInfo<Employee> getEmployees(Integer pageIndex, Integer pageSize);
+
+	Employee save(Employee employee);
 }

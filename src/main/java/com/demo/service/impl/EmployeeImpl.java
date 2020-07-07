@@ -28,4 +28,12 @@ public class EmployeeImpl implements IEmployeeService {
 		}
 	}
 
+    @Override
+    public Employee save(Employee employee) {
+        SqlSession sqlSession = MybatisUtils.getSqlSession(true);
+        EmployeeMapper mapper = sqlSession.getMapper(EmployeeMapper.class);
+        mapper.insert(employee);
+        return employee;
+    }
+
 }
